@@ -20,19 +20,6 @@ body{
     animation:fadePage 0.8s ease;
 }
 
-body.light{
-    background:#f2f4f8;
-    color:#111827;
-}
-
-body.light header,
-body.light .card,
-body.light .marquee,
-body.light .popup{
-    background:#ffffff;
-    color:#111827;
-}
-
 @keyframes fadePage{
     from{opacity:0;transform:translateY(15px)}
     to{opacity:1;transform:translateY(0)}
@@ -41,7 +28,7 @@ body.light .popup{
 /* ===== HEADER ===== */
 header{
     background: linear-gradient(90deg,#0f172a,#1e293b);
-    padding:18px 20px;
+    padding:12px 15px; /* giảm padding để sát viền */
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -50,25 +37,25 @@ header{
     box-shadow:0 12px 35px rgba(0,0,0,0.45);
 }
 
-/* ===== LOGO nhỏ hơn nữa ===== */
+/* ===== VÙNG CHỨA LOGO THU HẸP ===== */
 .logo-wrap{
+    width:160px; /* thu hẹp độ rộng */
     display:flex;
     align-items:center;
 }
 
+/* ===== LOGO TO SÁT VIỀN NHƯNG KHÔNG TRÀN ===== */
 .logo-img{
-    height:35px;      /* giảm thêm */
-    width:auto;
-    max-width:40%;    /* nhỏ hơn trước */
+    width:100%;
+    height:auto;
     object-fit:contain;
+    display:block;
     border:none;
-    border-radius:0;
     padding:0;
-    background:none;
-    box-shadow:none;
+    margin:0;
 }
 
-/* ===== ICONS ===== */
+/* ===== ICON ===== */
 .header-icons{
     font-size:22px;
     display:flex;
@@ -106,4 +93,116 @@ header{
 
 .card{
     background:#1e293b;
-    border-radius:
+    border-radius:20px;
+    padding:15px;
+    margin-bottom:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+}
+
+.image-wrap{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.image-wrap img{
+    width:100%;
+    height:auto;
+    object-fit:cover;
+    display:block;
+}
+
+/* ===== PHẦN CÒN LẠI GIỮ NGUYÊN ===== */
+
+.acc-id{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#ff2f92;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.badges{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:12px 0;
+}
+
+.badge{
+    background:#22c55e;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:13px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin:10px 0;
+    color:#facc15;
+}
+
+.btn{
+    display:block;
+    text-align:center;
+    background:#000;
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.popup{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#1e293b;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    width:280px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-wrap">
+        <img src="images/file_000000002858720886d2a4d40dee02dd.png" class="logo-img">
+    </div>
+    <div class="header-icons">
+        🌙
+    </div>
+</header>
+
+<div class="marquee">
+    <p>🔥 Shop bán acc uy tín - Bảo hành gmail 7 ngày - Hỗ trợ 24/7 🔥</p>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="image-wrap">
+            <img src="images/A4.jpg">
+            <div class="acc-id">MS: 000004</div>
+        </div>
+
+        <div class="badges">
+            <div class="badge">✔ acc dính xác minh</div>
+            <div class="badge">✔ bảo hành gmail 7 ngày</div>
+        </div>
+
+        <div class="price">130.000 đ</div>
+        <a href="detailacc1.html" class="btn">Chi Tiết</a>
+    </div>
+</div>
+
+</body>
+</html>
