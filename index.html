@@ -51,38 +51,23 @@ header{
     box-shadow:0 8px 25px rgba(0,0,0,0.4);
 }
 
-/* ===== LOGO WRAP ===== */
+/* ===== LOGO WRAP (CHỈ GIỮ ẢNH) ===== */
 .logo-wrap{
     display:flex;
     align-items:center;
-    gap:12px;
+    background:rgba(255,255,255,0.05);
+    padding:6px 14px;
+    border-radius:18px;
+    backdrop-filter:blur(8px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
 }
 
 .logo-img{
-    height:50px;
-    border-radius:12px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.5);
-}
-
-/* ===== TEXT ===== */
-.logo-text{
-    display:flex;
-    flex-direction:column;
-}
-
-.main-name{
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:1px;
-    background: linear-gradient(90deg,#ff0080,#7928ca,#00c6ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.sub-name{
-    font-size:12px;
-    color:#cbd5e1;
-    opacity:0.8;
+    height:60px;
+    object-fit:cover;
+    border-radius:18px;
+    border:2px solid rgba(255,255,255,0.2);
+    box-shadow:0 6px 18px rgba(0,0,0,0.6);
 }
 
 /* ===== ICONS ===== */
@@ -233,10 +218,6 @@ header{
 <header>
     <div class="logo-wrap">
         <img src="images/file_000000002858720886d2a4d40dee02dd.png" class="logo-img">
-        <div class="logo-text">
-            <span class="main-name">THTSCSHOP</span>
-            <span class="sub-name">Acc Game Uy Tín</span>
-        </div>
     </div>
 
     <div class="header-icons">
@@ -284,7 +265,6 @@ function hidePopup(){
     localStorage.setItem("hidePopupUntil", Date.now()+2*60*60*1000);
 }
 
-/* TOGGLE THEME */
 const toggle = document.getElementById("themeToggle");
 
 if(localStorage.getItem("theme")==="light"){
