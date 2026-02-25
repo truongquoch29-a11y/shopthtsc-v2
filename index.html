@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOP ACC TH V2</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#f2f4f8;
+    animation:fadePage 0.8s ease;
+}
+
+@keyframes fadePage{
+    from{opacity:0;transform:translateY(15px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* HEADER */
+header{
+    background:#fff;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 25px rgba(0,0,0,0.08);
+    animation:slideDown 0.7s ease;
+}
+
+@keyframes slideDown{
+    from{transform:translateY(-40px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    height:45px;
+    transition:0.4s;
+}
+
+.logo img:hover{
+    transform:rotate(8deg) scale(1.1);
+}
+
+.logo span{
+    font-weight:bold;
+    font-size:18px;
+    color:#6a00ff;
+}
+
+.icons{
+    display:flex;
+    gap:15px;
+    font-size:20px;
+}
+
+.icons span{
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.icons span:hover{
+    transform:scale(1.2);
+}
+
+/* MARQUEE */
+.marquee{
+    background:#fff;
+    margin:15px;
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+.marquee p{
+    white-space:nowrap;
+    display:inline-block;
+    animation:marqueeRun 18s linear infinite;
+    font-weight:600;
+}
+
+@keyframes marqueeRun{
+    from{transform:translateX(100%)}
+    to{transform:translateX(-100%)}
+}
+
+/* CARD */
+.container{
+    padding:15px;
+}
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:15px;
+    margin-bottom:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+    transition:0.4s;
+    animation:cardUp 0.8s ease;
+}
+
+@keyframes cardUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 45px rgba(0,0,0,0.2);
+}
+
+.image-wrap{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.image-wrap img{
+    width:100%;
+    transition:0.5s;
+}
+
+.image-wrap:hover img{
+    transform:scale(1.08);
+}
+
+.acc-id{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#ff2f92;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:14px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,47,146,0.6)}
+    70%{box-shadow:0 0 0 12px rgba(255,47,146,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,47,146,0)}
+}
+
+.badges{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:12px 0;
+}
+
+.badge{
+    background:#2ecc71;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:13px;
+    transition:0.3s;
+}
+
+.badge:hover{
+    transform:translateY(-3px);
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.btn{
+    display:block;
+    text-align:center;
+    background:#000;
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    position:relative;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#333;
+}
+
+/* Ripple */
+.btn::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:0;
+    background:rgba(255,255,255,0.4);
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    transition:0.6s;
+}
+
+.btn:active::after{
+    width:300px;
+    height:300px;
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#fff;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    width:280px;
+    animation:popupSlide 0.7s ease;
+}
+
+@keyframes popupSlide{
+    from{transform:translateY(60px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+.close{
+    position:absolute;
+    top:8px;
+    right:10px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png">
+        <span>SHOPQUYTHESPIKE.XYZ</span>
+    </div>
+    <div class="icons">
+        <span>🌐</span>
+        <span>🌙</span>
+        <span>🎨</span>
+        <span>☰</span>
+    </div>
+</header>
+
+<div class="marquee">
+    <p>🔥 Shop bán acc uy tín - Bảo hành gmail 7 ngày - Hỗ trợ 24/7 - Tham gia nhóm Zalo để nhận ưu đãi 🔥</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+        <div class="image-wrap">
+            <img src="acc1.jpg">
+            <div class="acc-id">MS: 50755777</div>
+        </div>
+
+        <div class="badges">
+            <div class="badge">✔ acc dính xác minh</div>
+            <div class="badge">✔ bảo hành gmail 7 ngày</div>
+        </div>
+
+        <div class="price">1.200.000 đ</div>
+        <a href="detailacc1.html" class="btn">Chi Tiết</a>
+    </div>
+
+</div>
+
+<div class="popup" id="popup">
+    <div class="close" onclick="hidePopup()">✖</div>
+    <h4>📢 Thông báo</h4>
+    <p>Liên hệ Zalo nếu Messenger lỗi.</p>
+</div>
+
+<script>
+const popup = document.getElementById("popup");
+const hideTime = localStorage.getItem("hidePopupUntil");
+
+if(hideTime && Date.now() < hideTime){
+    popup.style.display="none";
+}
+
+function hidePopup(){
+    popup.style.display="none";
+    localStorage.setItem("hidePopupUntil", Date.now()+2*60*60*1000);
+}
+</script>
+
+</body>
+</html>
