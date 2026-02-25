@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Community Report</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Gửi thông tin</h2>
+<form id="form">
+  <input type="text" name="name" placeholder="Tên" required>
+  <input type="file" name="image" accept="image/*" required>
+  <button type="submit">Gửi</button>
+</form>
+
+<hr>
+
+<h2>Danh sách đã duyệt</h2>
+<div id="list"></div>
+
+<script>
+const API = "http://localhost:5000";
+
+document.getElementById("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+
+  await fetch(API + "/api/report", {
+    method: "POST",
+    body: formData
+  });
+
+  alert("Đã gửi chờ duyệt");
+  e.target.reset();
+});
+
+async function load() {
+  const res = await fetch(API + "/api/reports");
+  const data = await res.json();
+
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  data.forEach(item => {
+    list.innerHTML += `
+      <div>
+        <h4>${item.name}</h4>
+        <img src="${API}/uploads/${item.image}" width="200">
+      </div>
+    `;
+  });
+}
+
+load();
+</script>
+
+</body>
+</html>
