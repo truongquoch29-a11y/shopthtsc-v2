@@ -296,4 +296,201 @@ toggle.onclick = function(){
 </script>
 
 </body>
+</html>    display:inline-block;
+    animation:marqueeRun 18s linear infinite;
+    font-weight:600;
+}
+
+@keyframes marqueeRun{
+    from{transform:translateX(100%)}
+    to{transform:translateX(-100%)}
+}
+
+/* ===== CARD ===== */
+.container{
+    padding:15px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:20px;
+    padding:15px;
+    margin-bottom:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 45px rgba(0,0,0,0.4);
+}
+
+.image-wrap{
+    position:relative;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.image-wrap img{
+    width:100%;
+    transition:0.5s;
+}
+
+.image-wrap:hover img{
+    transform:scale(1.08);
+}
+
+.acc-id{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#ff2f92;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:14px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,47,146,0.6)}
+    70%{box-shadow:0 0 0 12px rgba(255,47,146,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,47,146,0)}
+}
+
+.badges{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:12px 0;
+}
+
+.badge{
+    background:#22c55e;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:13px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin:10px 0;
+    color:#facc15;
+}
+
+.btn{
+    display:block;
+    text-align:center;
+    background:#000;
+    color:#fff;
+    padding:12px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#333;
+}
+
+/* ===== POPUP ===== */
+.popup{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#1e293b;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    width:280px;
+}
+
+.close{
+    position:absolute;
+    top:8px;
+    right:10px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-wrap">
+        <img src="images/file_000000002858720886d2a4d40dee02dd.png" class="logo-img">
+    </div>
+
+    <div class="header-icons">
+        <span id="themeToggle">🌙</span> 
+    </div>
+</header>
+
+<div class="marquee">
+    <p>🔥 Shop bán acc uy tín - Bảo hành gmail 7 ngày - Hỗ trợ 24/7 🔥</p>
+</div>
+
+<div class="container">
+    <div class="card">
+        <div class="image-wrap">
+            <img src="images/A4.jpg">
+            <div class="acc-id">MS: 000004</div>
+        </div>
+
+        <div class="badges">
+            <div class="badge">✔ acc dính xác minh</div>
+            <div class="badge">✔ bảo hành gmail 7 ngày</div>
+        </div>
+
+        <div class="price">130.000 đ</div>
+        <a href="detailacc1.html" class="btn">Chi Tiết</a>
+    </div>
+</div>
+
+<div class="popup" id="popup">
+    <div class="close" onclick="hidePopup()">✖</div>
+    <h4>📢 Thông báo</h4>
+    <p>Liên hệ Zalo nếu Messenger lỗi.</p>
+</div>
+
+<script>
+const popup = document.getElementById("popup");
+const hideTime = localStorage.getItem("hidePopupUntil");
+
+if(hideTime && Date.now() < hideTime){
+    popup.style.display="none";
+}
+
+function hidePopup(){
+    popup.style.display="none";
+    localStorage.setItem("hidePopupUntil", Date.now()+2*60*60*1000);
+}
+
+const toggle = document.getElementById("themeToggle");
+
+if(localStorage.getItem("theme")==="light"){
+    document.body.classList.add("light");
+    toggle.textContent="☀️";
+}else{
+    toggle.textContent="🌙";
+}
+
+toggle.onclick = function(){
+    document.body.classList.toggle("light");
+
+    if(document.body.classList.contains("light")){
+        toggle.textContent="☀️";
+        localStorage.setItem("theme","light");
+    }else{
+        toggle.textContent="🌙";
+        localStorage.setItem("theme","dark");
+    }
+};
+</script>
+
+</body>
 </html>
