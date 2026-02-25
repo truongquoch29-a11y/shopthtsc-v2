@@ -91,6 +91,7 @@ header{
     display:flex;
     gap:16px;
     color:#fff;
+    cursor:pointer;
 }
 
 /* ===== MARQUEE ===== */
@@ -239,7 +240,7 @@ header{
     </div>
 
     <div class="header-icons">
-        ☀️ 🎨 ☰
+        <span id="themeToggle">🌙</span> 🎨 ☰
     </div>
 </header>
 
@@ -289,6 +290,8 @@ const toggle = document.getElementById("themeToggle");
 if(localStorage.getItem("theme")==="light"){
     document.body.classList.add("light");
     toggle.textContent="☀";
+}else{
+    toggle.textContent="🌙";
 }
 
 toggle.onclick = function(){
