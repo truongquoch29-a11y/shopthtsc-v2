@@ -364,21 +364,29 @@ if(localStorage.getItem("theme")==="light"){
 }
 
 toggle.onclick = function(){
-  toggle.classList.add("rotate");
+
+  toggle.classList.add("switching");
 
   setTimeout(()=>{
-    toggle.classList.remove("rotate");
-  },500);
 
-  document.body.classList.toggle("light");
+    document.body.classList.toggle("light");
 
-  if(document.body.classList.contains("light")){
-    toggle.textContent="☀";
-    localStorage.setItem("theme","light");
-  }else{
-    toggle.textContent="🌙";
-    localStorage.setItem("theme","dark");
-  }
+    if(document.body.classList.contains("light")){
+      toggle.textContent="☀";
+      localStorage.setItem("theme","light");
+    }else{
+      toggle.textContent="🌙";
+      localStorage.setItem("theme","dark");
+    }
+
+    toggle.classList.remove("switching");
+    toggle.classList.add("show");
+
+    setTimeout(()=>{
+      toggle.classList.remove("show");
+    },300);
+
+  },300);
 };
 </script>
 
