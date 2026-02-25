@@ -20,19 +20,6 @@ body{
     animation:fadePage 0.8s ease;
 }
 
-body.light{
-    background:#f2f4f8;
-    color:#111827;
-}
-
-body.light header,
-body.light .card,
-body.light .marquee,
-body.light .popup{
-    background:#ffffff;
-    color:#111827;
-}
-
 @keyframes fadePage{
     from{opacity:0;transform:translateY(15px)}
     to{opacity:1;transform:translateY(0)}
@@ -41,7 +28,7 @@ body.light .popup{
 /* ===== HEADER ===== */
 header{
     background: linear-gradient(90deg,#0f172a,#1e293b);
-    padding:18px 20px;
+    padding:12px 15px; /* giảm padding để sát viền */
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -50,25 +37,25 @@ header{
     box-shadow:0 12px 35px rgba(0,0,0,0.45);
 }
 
-/* ===== LOGO (giảm 50%) ===== */
+/* ===== VÙNG CHỨA LOGO THU HẸP ===== */
 .logo-wrap{
+    width:160px; /* thu hẹp độ rộng */
     display:flex;
     align-items:center;
 }
 
+/* ===== LOGO TO SÁT VIỀN NHƯNG KHÔNG TRÀN ===== */
 .logo-img{
-    height:45px; /* giảm còn khoảng 50% */
-    width:auto;
-    max-width:50%; /* giới hạn chiều rộng còn 50% */
+    width:100%;
+    height:auto;
     object-fit:contain;
+    display:block;
     border:none;
-    border-radius:0;
     padding:0;
-    background:none;
-    box-shadow:none;
+    margin:0;
 }
 
-/* ===== ICONS ===== */
+/* ===== ICON ===== */
 .header-icons{
     font-size:22px;
     display:flex;
@@ -107,15 +94,9 @@ header{
 .card{
     background:#1e293b;
     border-radius:20px;
-    padding:10px; /* giảm padding để ảnh sát viền hơn */
+    padding:15px;
     margin-bottom:25px;
     box-shadow:0 15px 35px rgba(0,0,0,0.3);
-    transition:0.4s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 25px 45px rgba(0,0,0,0.4);
 }
 
 .image-wrap{
@@ -124,13 +105,11 @@ header{
     border-radius:15px;
 }
 
-/* ===== ẢNH nhỏ hơn và sát viền ===== */
 .image-wrap img{
     width:100%;
     height:auto;
     object-fit:cover;
     display:block;
-    border:none;
 }
 
 /* ===== PHẦN CÒN LẠI GIỮ NGUYÊN ===== */
@@ -145,13 +124,6 @@ header{
     border-radius:8px;
     font-weight:bold;
     font-size:14px;
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(255,47,146,0.6)}
-    70%{box-shadow:0 0 0 12px rgba(255,47,146,0)}
-    100%{box-shadow:0 0 0 0 rgba(255,47,146,0)}
 }
 
 .badges{
@@ -185,11 +157,6 @@ header{
     border-radius:10px;
     text-decoration:none;
     font-weight:bold;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#333;
 }
 
 .popup{
@@ -202,13 +169,6 @@ header{
     box-shadow:0 10px 30px rgba(0,0,0,0.4);
     width:280px;
 }
-
-.close{
-    position:absolute;
-    top:8px;
-    right:10px;
-    cursor:pointer;
-}
 </style>
 </head>
 
@@ -218,9 +178,8 @@ header{
     <div class="logo-wrap">
         <img src="images/file_000000002858720886d2a4d40dee02dd.png" class="logo-img">
     </div>
-
     <div class="header-icons">
-        <span id="themeToggle">🌙</span> 
+        🌙
     </div>
 </header>
 
@@ -244,47 +203,6 @@ header{
         <a href="detailacc1.html" class="btn">Chi Tiết</a>
     </div>
 </div>
-
-<div class="popup" id="popup">
-    <div class="close" onclick="hidePopup()">✖</div>
-    <h4>📢 Thông báo</h4>
-    <p>Liên hệ Zalo nếu Messenger lỗi.</p>
-</div>
-
-<script>
-const popup = document.getElementById("popup");
-const hideTime = localStorage.getItem("hidePopupUntil");
-
-if(hideTime && Date.now() < hideTime){
-    popup.style.display="none";
-}
-
-function hidePopup(){
-    popup.style.display="none";
-    localStorage.setItem("hidePopupUntil", Date.now()+2*60*60*1000);
-}
-
-const toggle = document.getElementById("themeToggle");
-
-if(localStorage.getItem("theme")==="light"){
-    document.body.classList.add("light");
-    toggle.textContent="☀️";
-}else{
-    toggle.textContent="🌙";
-}
-
-toggle.onclick = function(){
-    document.body.classList.toggle("light");
-
-    if(document.body.classList.contains("light")){
-        toggle.textContent="☀️";
-        localStorage.setItem("theme","light");
-    }else{
-        toggle.textContent="🌙";
-        localStorage.setItem("theme","dark");
-    }
-};
-</script>
 
 </body>
 </html>
