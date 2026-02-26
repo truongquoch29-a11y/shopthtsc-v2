@@ -16,85 +16,77 @@
 body{
     background:#0f172a;
     color:#f1f5f9;
-    transition:background 0.5s ease, color 0.5s ease;
-    animation:fadePage 0.8s ease;
+    transition:background 0.4s ease,color 0.4s ease;
 }
 
+/* ===== LIGHT MODE ===== */
 body.light-mode{
     background:#f1f5f9;
     color:#0f172a;
 }
 
-body.light-mode header{ background:linear-gradient(90deg,#e2e8f0,#cbd5e1); }
-body.light-mode .marquee{ background:#e2e8f0; }
-body.light-mode .card{ background:#e2e8f0; }
-body.light-mode .popup{ background:#e2e8f0; }
-
-@keyframes fadePage{
-    from{opacity:0;transform:translateY(15px)}
-    to{opacity:1;transform:translateY(0)}
-}
+body.light-mode header{background:#e2e8f0;}
+body.light-mode .marquee{background:#e2e8f0;}
+body.light-mode .card{background:#ffffff;}
+body.light-mode .popup{background:#ffffff;}
 
 /* ===== HEADER ===== */
 header{
-    background: linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+    background:#1e293b;
     padding:12px 15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     border-radius:20px;
     margin:15px;
-    box-shadow:0 12px 35px rgba(0,0,0,0.45);
-    position:relative;
-    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.4);
 }
 
-/* ===== LOGO ===== */
 .logo-wrap{
     width:160px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    z-index:1;
 }
 
 .logo-img{
     width:100%;
     object-fit:contain;
     display:block;
-    filter:drop-shadow(0 0 12px rgba(168,85,247,0.6));
 }
 
-/* ===== ICON ===== */
-.header-icons{
-    font-size:24px;
-    display:flex;
-    gap:18px;
-}
-
+/* ===== THEME BUTTON NHỎ GỌN ===== */
 .theme-toggle{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#0f172a;
     cursor:pointer;
-    transition:transform 0.5s ease;
+    font-size:18px;
+    transition:all 0.3s ease;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
 }
 
-.rotate{
-    transform:rotate(180deg) scale(1.2);
+body.light-mode .theme-toggle{
+    background:#cbd5e1;
+}
+
+.theme-toggle:hover{
+    transform:scale(1.1);
 }
 
 /* ===== MARQUEE ===== */
 .marquee{
     background:#1e293b;
     margin:15px;
-    padding:12px;
+    padding:10px;
     border-radius:12px;
     overflow:hidden;
 }
 
 .marquee p{
     white-space:nowrap;
-    display:inline-block;
     animation:marqueeRun 18s linear infinite;
-    font-weight:600;
 }
 
 @keyframes marqueeRun{
@@ -103,22 +95,19 @@ header{
 }
 
 /* ===== CARD ===== */
-.container{ padding:15px; }
+.container{padding:15px;}
 
 .card{
     background:#1e293b;
-    border-radius:20px;
+    border-radius:18px;
     padding:15px;
-    margin-bottom:25px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.3);
-    position:relative;
+    box-shadow:0 12px 30px rgba(0,0,0,0.35);
 }
 
-/* ===== SALE BADGE NHỎ HƠN TRÊN ẢNH ===== */
 .image-wrap{
     position:relative;
     overflow:hidden;
-    border-radius:15px;
+    border-radius:14px;
 }
 
 .image-wrap img{
@@ -130,20 +119,11 @@ header{
     position:absolute;
     top:8px;
     left:8px;
-    background:linear-gradient(45deg,#ff0000,#ff4d4d);
+    background:#ff0000;
     color:#fff;
-    padding:5px 10px;
-    font-weight:600;
+    padding:4px 8px;
     font-size:12px;
     border-radius:8px;
-    box-shadow:0 5px 15px rgba(255,0,0,0.5);
-    animation:pulseSale 1.2s infinite;
-}
-
-@keyframes pulseSale{
-    0%{transform:scale(1)}
-    50%{transform:scale(1.08)}
-    100%{transform:scale(1)}
 }
 
 .acc-id{
@@ -152,71 +132,83 @@ header{
     right:8px;
     background:#ff2f92;
     color:#fff;
-    padding:5px 10px;
-    border-radius:8px;
-    font-weight:bold;
+    padding:4px 8px;
     font-size:12px;
+    border-radius:8px;
 }
 
-/* ===== BADGES ===== */
 .badges{
     display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+    gap:8px;
     margin:12px 0;
+    flex-wrap:wrap;
 }
 
 .badge{
     background:#22c55e;
-    color:#fff;
-    padding:6px 10px;
+    padding:5px 8px;
     border-radius:8px;
-    font-size:13px;
+    font-size:12px;
+    color:#fff;
 }
 
-/* ===== PRICE BOX NHỎ GỌN HƠN ===== */
+/* ===== PRICE BOX ===== */
 .price-box{
     background:linear-gradient(90deg,#7c3aed,#ec4899);
-    padding:8px 12px;
+    padding:8px;
     border-radius:12px;
     text-align:center;
-    margin:10px auto;
     width:75%;
-    box-shadow:0 8px 18px rgba(236,72,153,0.4);
+    margin:10px auto;
 }
 
 .old-price{
     text-decoration:line-through;
     font-size:13px;
-    opacity:0.8;
 }
 
 .new-price{
     font-size:20px;
     font-weight:bold;
     color:#facc15;
-    margin-top:3px;
 }
 
-/* ===== BUTTON ===== */
+/* ===== BUTTON XEM CHI TIẾT CÓ ANIMATION ===== */
 .btn{
     display:block;
     text-align:center;
-    background:linear-gradient(90deg,#000,#111);
-    color:#fff;
     padding:12px;
     border-radius:12px;
     text-decoration:none;
     font-weight:bold;
-    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    color:#fff;
+    background:linear-gradient(90deg,#2563eb,#7c3aed);
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.25s ease;
+}
+
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
+    transition:0.6s;
+}
+
+.btn:hover::before{
+    left:100%;
 }
 
 .btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 20px rgba(0,0,0,0.5);
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 10px 25px rgba(124,58,237,0.6);
 }
 
-/* ===== POPUP ANIMATION ===== */
+/* ===== POPUP ===== */
 .popup{
     position:fixed;
     bottom:20px;
@@ -224,12 +216,10 @@ header{
     background:#1e293b;
     padding:10px 14px;
     border-radius:10px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.4);
     font-size:13px;
-    opacity:0;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
 }
 
-/* Animation */
 @keyframes slideIn{
     from{right:-250px;opacity:0}
     to{right:20px;opacity:1}
@@ -248,9 +238,7 @@ header{
     <div class="logo-wrap">
         <img src="images/logo2.png" class="logo-img">
     </div>
-    <div class="header-icons">
-        <span id="themeIcon" class="theme-toggle" onclick="toggleTheme()">🌙</span>
-    </div>
+    <div class="theme-toggle" id="themeIcon" onclick="toggleTheme()">🌙</div>
 </header>
 
 <div class="marquee">
@@ -276,7 +264,8 @@ header{
             <div class="new-price">130.000 đ</div>
         </div>
 
-        <a href="detailacc1.html" class="btn">MUA NGAY</a>
+        <a href="detailacc1.html" class="btn">XEM CHI TIẾT</a>
+
     </div>
 </div>
 
@@ -286,26 +275,19 @@ header{
 
 <script>
 function toggleTheme(){
-    const body = document.body;
-    const icon = document.getElementById("themeIcon");
+    const body=document.body;
+    const icon=document.getElementById("themeIcon");
 
     body.classList.toggle("light-mode");
-    icon.classList.add("rotate");
-
-    setTimeout(()=>{
-        icon.textContent = body.classList.contains("light-mode") ? "☀️" : "🌙";
-        icon.classList.remove("rotate");
-    },250);
+    icon.textContent = body.classList.contains("light-mode") ? "☀️" : "🌙";
 }
 
-/* Popup hiện khi load và tự ẩn sau 10s */
+/* Popup */
 window.addEventListener("load",function(){
-    const popup = document.getElementById("popup");
-
-    popup.style.animation = "slideIn 0.6s forwards";
-
+    const popup=document.getElementById("popup");
+    popup.style.animation="slideIn 0.6s forwards";
     setTimeout(()=>{
-        popup.style.animation = "slideOut 0.6s forwards";
+        popup.style.animation="slideOut 0.6s forwards";
     },10000);
 });
 </script>
