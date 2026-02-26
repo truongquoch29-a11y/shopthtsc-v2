@@ -289,23 +289,62 @@ body.light-mode .theme-toggle{
 
 /* ===== PRICE BOX ===== */
 .price-box{
-    background:linear-gradient(90deg,#7c3aed,#ec4899);
-    padding:8px;
-    border-radius:12px;
+    background:linear-gradient(135deg,#7b3fe4,#ff4fa3);
+    padding:18px;
+    border-radius:18px;
     text-align:center;
-    width:75%;
-    margin:10px auto;
+    margin:18px 0;
+    position:relative;
+    overflow:hidden;
+    animation:priceFloat 3s ease-in-out infinite;
 }
 
+/* Viền sáng nhẹ */
+.price-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:18px;
+    padding:2px;
+    background:linear-gradient(45deg,#ffffff55,#ffffff00,#ffffff55);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+    pointer-events:none;
+}
+
+/* Giá cũ */
 .old-price{
+    color:#ffffffaa;
     text-decoration:line-through;
-    font-size:13px;
+    font-size:18px;
+    display:block;
+    margin-bottom:5px;
 }
 
+/* Giá mới */
 .new-price{
-    font-size:20px;
-    font-weight:bold;
-    color:#facc15;
+    font-size:32px;
+    font-weight:700;
+    color:#ffe600;
+    letter-spacing:1px;
+    animation:priceGlow 2s ease-in-out infinite;
+}
+
+/* Nhẹ nhàng nhô lên xuống */
+@keyframes priceFloat{
+    0%{ transform:translateY(0px); }
+    50%{ transform:translateY(-4px); }
+    100%{ transform:translateY(0px); }
+}
+
+/* Phát sáng nhẹ */
+@keyframes priceGlow{
+    0%{ text-shadow:0 0 5px rgba(255,230,0,0.6); }
+    50%{ text-shadow:0 0 15px rgba(255,230,0,1); }
+    100%{ text-shadow:0 0 5px rgba(255,230,0,0.6); }
 }
 
 /* ===== NÚT XEM CHI TIẾT BẮT MẮT ===== */
