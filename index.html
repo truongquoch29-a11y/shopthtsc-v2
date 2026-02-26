@@ -20,6 +20,27 @@ body{
     animation:fadePage 0.8s ease;
 }
 
+body.light-mode{
+    background:#f1f5f9;
+    color:#0f172a;
+}
+
+body.light-mode header{
+    background:linear-gradient(90deg,#e2e8f0,#cbd5e1);
+}
+
+body.light-mode .marquee{
+    background:#e2e8f0;
+}
+
+body.light-mode .card{
+    background:#e2e8f0;
+}
+
+body.light-mode .popup{
+    background:#e2e8f0;
+}
+
 @keyframes fadePage{
     from{opacity:0;transform:translateY(15px)}
     to{opacity:1;transform:translateY(0)}
@@ -28,7 +49,7 @@ body{
 /* ===== HEADER ===== */
 header{
     background: linear-gradient(90deg,#0f172a,#1e293b);
-    padding:12px 15px; /* giảm padding để sát viền */
+    padding:12px 15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -37,14 +58,13 @@ header{
     box-shadow:0 12px 35px rgba(0,0,0,0.45);
 }
 
-/* ===== VÙNG CHỨA LOGO THU HẸP ===== */
+/* ===== LOGO ===== */
 .logo-wrap{
-    width:160px; /* thu hẹp độ rộng */
+    width:160px;
     display:flex;
     align-items:center;
 }
 
-/* ===== LOGO TO SÁT VIỀN NHƯNG KHÔNG TRÀN ===== */
 .logo-img{
     width:100%;
     height:auto;
@@ -60,8 +80,12 @@ header{
     font-size:22px;
     display:flex;
     gap:18px;
-    color:#fff;
+    color:inherit;
+}
+
+.theme-toggle{
     cursor:pointer;
+    user-select:none;
 }
 
 /* ===== MARQUEE ===== */
@@ -112,7 +136,7 @@ header{
     display:block;
 }
 
-/* ===== PHẦN CÒN LẠI GIỮ NGUYÊN ===== */
+/* ===== PHẦN CÒN LẠI ===== */
 
 .acc-id{
     position:absolute;
@@ -179,7 +203,7 @@ header{
         <img src="images/logo2.png" class="logo-img">
     </div>
     <div class="header-icons">
-        🌙
+        <span class="theme-toggle" onclick="toggleTheme()">🌙</span>
     </div>
 </header>
 
@@ -203,6 +227,12 @@ header{
         <a href="detailacc1.html" class="btn">Chi Tiết</a>
     </div>
 </div>
+
+<script>
+function toggleTheme(){
+    document.body.classList.toggle("light-mode");
+}
+</script>
 
 </body>
 </html>
