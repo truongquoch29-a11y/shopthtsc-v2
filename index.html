@@ -77,22 +77,15 @@ header::before{
 
 /* ===== LOGO ===== */
 .logo-wrap{
-    width:160px;
+    height:120px;          /* giữ nguyên khung */
+    overflow:hidden;       /* không cho tràn */
     display:flex;
     align-items:center;
-    position:relative;
-    z-index:1;
+    justify-content:center;
 }
 
 .logo-img{
-    width:100%;
-    height:auto;
-    object-fit:contain;
-    display:block;
-    border:none;
-    padding:0;
-    margin:0;
-    filter:drop-shadow(0 0 12px rgba(168,85,247,0.6));
+    transform:scale(1.3);
 }
 
 /* ===== ICON ===== */
