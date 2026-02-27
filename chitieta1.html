@@ -12,9 +12,9 @@
     box-sizing:border-box;
 }
 
+/* ===== BODY ===== */
 body{
     font-family:Arial, sans-serif;
-    background:#f2f3f7;
     display:flex;
     justify-content:center;
     padding:30px 15px;
@@ -23,32 +23,50 @@ body{
     transition:opacity 0.5s ease, transform 0.5s ease;
 }
 
+/* DARK MODE (mặc định) */
+body{
+    background:#0f172a;
+    color:#f1f5f9;
+}
+
+/* LIGHT MODE */
+body.light-mode{
+    background:#f2f3f7;
+    color:#0f172a;
+}
+
 body.page-in{
     opacity:1;
     transform:translateY(0);
 }
 
+/* ===== CONTAINER ===== */
 .container{
     width:100%;
     max-width:500px;
-    background:#ffffff;
     padding:22px;
     border-radius:16px;
-    box-shadow:0 12px 35px rgba(0,0,0,0.08);
     animation:fadeCard 0.6s ease;
 }
 
-@keyframes fadeCard{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+/* DARK */
+body:not(.light-mode) .container{
+    background:#1e293b;
+    box-shadow:0 12px 35px rgba(0,0,0,0.35);
 }
 
+/* LIGHT */
+body.light-mode .container{
+    background:#ffffff;
+    box-shadow:0 12px 35px rgba(0,0,0,0.08);
+}
+
+@keyframes fadeCard{
+    from{ opacity:0; transform:translateY(20px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+
+/* ===== TITLE ===== */
 .title{
     text-align:center;
     font-size:22px;
@@ -56,6 +74,7 @@ body.page-in{
     margin-bottom:18px;
 }
 
+/* ===== IMAGE ===== */
 .image-box{
     width:100%;
     border-radius:14px;
@@ -69,6 +88,7 @@ body.page-in{
     display:block;
 }
 
+/* ===== INFO ===== */
 .info{
     text-align:center;
     margin-bottom:15px;
@@ -78,8 +98,14 @@ body.page-in{
     font-size:22px;
     font-weight:bold;
     margin-top:8px;
+    color:#22c55e;
 }
 
+body.light-mode .price{
+    color:#16a34a;
+}
+
+/* ===== BADGES ===== */
 .badges{
     display:flex;
     flex-wrap:wrap;
@@ -89,19 +115,28 @@ body.page-in{
 }
 
 .badge{
-    background:#000;
-    color:#fff;
     padding:8px 12px;
     border-radius:8px;
     font-size:13px;
 }
 
+/* DARK badge */
+body:not(.light-mode) .badge{
+    background:#334155;
+    color:#f1f5f9;
+}
+
+/* LIGHT badge */
+body.light-mode .badge{
+    background:#e5e7eb;
+    color:#0f172a;
+}
+
+/* ===== BUTTON ===== */
 .pay-btn{
     display:block;
     width:100%;
     padding:14px 0;
-    background:linear-gradient(45deg,#111,#333);
-    color:#fff;
     text-align:center;
     border-radius:12px;
     text-decoration:none;
@@ -109,9 +144,20 @@ body.page-in{
     transition:all 0.25s ease;
 }
 
+/* DARK button */
+body:not(.light-mode) .pay-btn{
+    background:linear-gradient(45deg,#2563eb,#3b82f6);
+    color:#ffffff;
+}
+
+/* LIGHT button */
+body.light-mode .pay-btn{
+    background:linear-gradient(45deg,#1d4ed8,#2563eb);
+    color:#ffffff;
+}
+
 .pay-btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
 .pay-btn:active{
@@ -126,7 +172,6 @@ body.page-in{
     <div class="title">Chi Tiết Tài Khoản #000004</div>
 
     <div class="image-box">
-        <!-- Đặt ảnh thật vào thư mục images và sửa lại đường dẫn nếu cần -->
         <img src="images/A4.jpg">
     </div>
 
@@ -149,14 +194,15 @@ window.addEventListener("load",function(){
     document.body.classList.add("page-in");
 });
 </script>
+
 <script>
 window.addEventListener("DOMContentLoaded", function(){
     const savedTheme = localStorage.getItem("theme");
-
     if(savedTheme === "light"){
         document.body.classList.add("light-mode");
     }
 });
 </script>
+
 </body>
 </html>
