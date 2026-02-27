@@ -163,6 +163,71 @@ body.light-mode .pay-btn{
 .pay-btn:active{
     transform:scale(0.98);
 }
+    /* ===== DETAIL SECTION ===== */
+.detail-section{
+    margin-top:28px;
+}
+
+.detail-title{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:18px;
+    letter-spacing:1px;
+}
+
+/* GRID */
+.detail-grid{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* ITEM */
+.detail-item{
+    border-radius:14px;
+    overflow:hidden;
+    transition:0.3s ease;
+}
+
+/* DARK MODE */
+body:not(.light-mode) .detail-item{
+    background:#334155;
+    box-shadow:0 8px 25px rgba(0,0,0,0.35);
+}
+
+/* LIGHT MODE */
+body.light-mode .detail-item{
+    background:#ffffff;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.detail-item img{
+    width:100%;
+    display:block;
+}
+
+/* DESCRIPTION */
+.detail-desc{
+    padding:12px;
+    font-size:14px;
+    text-align:center;
+}
+
+/* DARK TEXT */
+body:not(.light-mode) .detail-desc{
+    color:#e2e8f0;
+}
+
+/* LIGHT TEXT */
+body.light-mode .detail-desc{
+    color:#1e293b;
+}
+
+/* Hover nổi bật */
+.detail-item:hover{
+    transform:translateY(-5px);
+}
 </style>
 </head>
 
@@ -188,7 +253,28 @@ body.light-mode .pay-btn{
 
     <a href="#" class="pay-btn">Thanh Toán</a>
 </div>
+<div class="detail-section">
+    <div class="detail-title">Chi Tiết</div>
 
+    <div class="detail-grid">
+
+        <div class="detail-item">
+            <img src="images/detail1.jpg" alt="">
+            <div class="detail-desc">Thông tin trang bị và nhân vật trong acc</div>
+        </div>
+
+        <div class="detail-item">
+            <img src="images/detail2.jpg" alt="">
+            <div class="detail-desc">Lịch sử hoạt động và cấp độ hiện tại</div>
+        </div>
+
+        <div class="detail-item">
+            <img src="images/detail3.jpg" alt="">
+            <div class="detail-desc">Vật phẩm và tài nguyên đang sở hữu</div>
+        </div>
+
+    </div>
+</div>
 <script>
 window.addEventListener("load",function(){
     document.body.classList.add("page-in");
