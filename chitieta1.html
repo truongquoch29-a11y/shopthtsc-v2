@@ -16,31 +16,33 @@
     padding:0 15px;
 }
 
-/* Tiêu đề cân giữa, form giống shop */
+/* ===== TITLE DECOR ===== */
+
 .acc-detail-title{
-    text-align:center;
-    font-size:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    font-size:24px;
     font-weight:700;
-    margin-bottom:35px;
+    margin-bottom:30px;
     letter-spacing:1px;
-    position:relative;
 }
 
+/* Gạch trái & phải */
+.acc-detail-title::before,
 .acc-detail-title::after{
     content:"";
-    width:80px;
-    height:4px;
-    display:block;
-    margin:14px auto 0 auto;
+    flex:1;
+    height:3px;
     border-radius:10px;
-    background:linear-gradient(45deg,#7c3aed,#2563eb);
+    background:linear-gradient(90deg,#7c3aed,#2563eb);
 }
-
 /* Ảnh xếp dọc giống ảnh 2 */
 .acc-detail-images{
     display:flex;
     flex-direction:column;
-    gap:40px;
+    gap:18px;
 }
 
 /* Card ảnh */
