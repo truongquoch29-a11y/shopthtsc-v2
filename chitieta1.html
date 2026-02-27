@@ -8,17 +8,30 @@
 <style>
     /* Footer */
     footer{
-    margin:30px auto 20px;
-    padding:20px 15px;
+footer{
     width:100%;
     max-width:500px;
+    margin:30px auto 20px auto;
+    padding:20px 15px;
     box-sizing:border-box;
-    background:#1e293b;
     border-radius:18px;
     text-align:center;
     font-size:13px;
     box-shadow:0 10px 25px rgba(0,0,0,0.35);
-    }
+    transition:background 0.3s ease, color 0.3s ease;
+}
+
+/* DARK MODE */
+body:not(.light-mode) footer{
+    background:#1e293b;
+    color:#f1f5f9;
+}
+
+/* LIGHT MODE */
+body.light-mode footer{
+    background:#ffffff;
+    color:#0f172a;
+}
     /* Chặn lệch */
 *{
     box-sizing:border-box;
