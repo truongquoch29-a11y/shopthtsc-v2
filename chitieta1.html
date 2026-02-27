@@ -6,18 +6,25 @@
 <title>Chi Tiết Acc</title>
 
 <style>
-/* ===== PAYMENT POPUP ===== */
+/* ===== PAYMENT POPUP FIX FINAL ===== */
 .payment-popup{
 position:fixed;
-inset:0;
-background:rgba(0,0,0,0.55);
+top:0;
+left:0;
+width:100vw;
+height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
-z-index:9999;
+align-items:center;
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(4px);
+-webkit-backdrop-filter:blur(4px);
+z-index:999999;
 opacity:0;
 visibility:hidden;
-transition:0.3s ease;
+transition:opacity .25s ease;
+padding:20px;
+box-sizing:border-box;
 }
 
 .payment-popup.active{
@@ -25,59 +32,75 @@ opacity:1;
 visibility:visible;
 }
 
+/* ===== POPUP BOX ===== */
 .payment-box{
-background:#f2f2f2;
-width:92%;
+width:100%;
 max-width:420px;
-padding:30px 20px 35px;
-border-radius:16px;
+background:#ffffff;
+border-radius:22px;
+padding:35px 28px 40px;
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,0.25);
+box-shadow:0 40px 80px rgba(0,0,0,0.5);
+transform:translateY(-60px); /* nhích lên trên */
+animation:popupIn .25s ease;
+box-sizing:border-box;
 }
 
-/* Thông báo mới */
+/* animation mượt */
+@keyframes popupIn{
+from{
+opacity:0;
+transform:translateY(-80px);
+}
+to{
+opacity:1;
+transform:translateY(-60px);
+}
+}
+
+/* tiêu đề mã acc */
 .payment-box h2{
-font-size:20px;
+font-size:19px;
 font-weight:700;
-color:#4b4b4b;
-margin-bottom:15px;
+margin-bottom:18px;
+color:#444;
 }
 
-/* WELCOME TO SHOPQUYTHE SPIKE */
+/* THANK YOU */
 .welcome-title{
-font-size:36px;
+font-size:34px;
 font-weight:900;
-color:#0f172a;
 line-height:1.15;
 letter-spacing:2px;
-margin-bottom:18px;
+margin-bottom:20px;
+color:#0f172a;
 }
 
-/* Nội dung mô tả */
+/* nội dung */
 .payment-box p{
-font-size:17px;
-color:#555;
+font-size:16px;
 line-height:1.6;
-margin-bottom:25px;
+margin-bottom:28px;
+color:#555;
 }
 
-/* Nút OK tím giống ảnh */
+/* nút */
 .popup-ok{
-padding:12px 35px;
+padding:14px 38px;
 border:none;
-border-radius:14px;
+border-radius:16px;
 background:linear-gradient(145deg,#7b6cf0,#6a5be8);
-color:#ffffff;
+color:#fff;
 font-size:17px;
 font-weight:700;
 cursor:pointer;
-box-shadow:0 6px 0 #5a4fd6;
-transition:0.15s ease;
+box-shadow:0 8px 0 #5a4fd6;
+transition:.15s ease;
 }
 
 .popup-ok:active{
-transform:translateY(3px);
-box-shadow:0 3px 0 #5a4fd6;
+transform:translateY(4px);
+box-shadow:0 4px 0 #5a4fd6;
 }
 /* ===== FOOTER CLEAN - FIX DARK MODE ===== */
 footer{
