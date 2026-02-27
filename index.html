@@ -30,24 +30,24 @@ transform:translateY(0);
 }
     
 text-align:center;
-/* ===== FOOTER PROFESSIONAL ===== */
+/* ===== FOOTER CLEAN - FIX DARK MODE ===== */
 footer{
 margin-top:50px;
 padding:35px 15px 25px;
 text-align:center;
-background:#0b1220;              /* màu bắt đầu từ footer */
-border-top:1px solid #1f2937;     /* viền nhẹ phân cách */
+border-top:1px solid rgba(255,255,255,0.06);
 }
 
-/* Dark mode */
+/* ===== DARK MODE ===== */
 body:not(.light-mode) footer{
-background:#0b1220;
-color:#94a3b8;                    /* chữ dịu, không chói */
+background:#0f172a;          /* trùng background body */
+color:#94a3b8;
+border-top:1px solid #1e293b;
 }
 
-/* Light mode */
+/* ===== LIGHT MODE ===== */
 body.light-mode footer{
-background:#e9edf3;               /* xám rất nhẹ */
+background:#f1f5f9;          /* trùng nền light */
 color:#475569;
 border-top:1px solid #d8dee6;
 }
@@ -57,7 +57,6 @@ margin-bottom:15px;
 font-size:18px;
 letter-spacing:2px;
 font-weight:700;
-text-align:center;
 color:inherit;
 }
 
