@@ -6,7 +6,20 @@
 <title>Chi Tiết Acc</title>
 
 <style>
-/* ===== IMAGE BLOCK GIỐNG HÌNH 1 ===== */
+/* ===== IMAGE BLOCK ===== */
+.acc-detail-section{
+    width:100%;
+    max-width:500px;
+    margin:30px auto 0 auto; /* nằm dưới container */
+}
+
+.acc-detail-title{
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
 .acc-detail-images{
     display:flex;
     flex-direction:column;
@@ -42,12 +55,12 @@ body.light-mode .detail-card{
 .detail-card:hover{
     transform:translateY(-6px);
 }
+
 /* ===== BODY ===== */
 body{
     font-family:Arial, sans-serif;
-    display:flex;
-    justify-content:center;
     padding:30px 15px;
+    margin:0;
     opacity:0;
     transform:translateY(30px);
     transition:opacity 0.5s ease, transform 0.5s ease;
@@ -76,6 +89,7 @@ body.page-in{
     max-width:500px;
     padding:22px;
     border-radius:16px;
+    margin:0 auto; /* căn giữa */
     animation:fadeCard 0.6s ease;
 }
 
@@ -218,9 +232,9 @@ body.light-mode .pay-btn{
 
     <a href="#" class="pay-btn">Thanh Toán</a>
 </div>
-<div class="acc-detail-section">
 
-    <div class="acc-detail-title fancy-title">
+<div class="acc-detail-section">
+    <div class="acc-detail-title">
         CHI TIẾT SIÊU PHẨM NISHI +5
     </div>
 
@@ -236,10 +250,7 @@ body.light-mode .pay-btn{
         <div class="detail-card">
             <img src="images/a4m3.jpg" alt="">
         </div>
-
-        
     </div>
-
 </div>
 
 <script>
