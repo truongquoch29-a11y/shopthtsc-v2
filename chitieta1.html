@@ -19,24 +19,30 @@
 /* ===== TITLE DECOR ===== */
 
 .acc-detail-title{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    font-size:24px;
-    font-weight:700;
-    margin-bottom:30px;
-    letter-spacing:1px;
+text-align:center;
+font-size:20px;
+font-weight:700;
+margin:30px 0 20px;
+letter-spacing:1px;
+position:relative;
 }
 
-/* Gạch trái & phải */
 .acc-detail-title::before,
 .acc-detail-title::after{
-    content:"";
-    flex:1;
-    height:3px;
-    border-radius:10px;
-    background:linear-gradient(90deg,#7c3aed,#2563eb);
+content:"";
+position:absolute;
+top:50%;
+width:25%;
+height:2px;
+background:linear-gradient(90deg,#7c3aed,#ec4899);
+}
+
+.acc-detail-title::before{
+left:0;
+}
+
+.acc-detail-title::after{
+right:0;
 }
 /* Ảnh xếp dọc giống ảnh 2 */
 .acc-detail-images{
@@ -253,7 +259,7 @@ body.light-mode .pay-btn{
 
 <div class="acc-detail-section">
     <div class="acc-detail-title">
-        CHI TIẾT SIÊU PHẨM NISHI +5
+        CHI TIẾT
     </div>
 
     <div class="acc-detail-images">
