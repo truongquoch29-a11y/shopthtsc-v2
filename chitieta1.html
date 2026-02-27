@@ -6,7 +6,8 @@
 <title>Chi Tiết Acc</title>
 
 <style>
-/* ===== PAYMENT POPUP FIX FINAL ===== */
+
+/* ===== PREMIUM PAYMENT POPUP ===== */
 .payment-popup{
 position:fixed;
 top:0;
@@ -17,13 +18,13 @@ display:flex;
 justify-content:center;
 align-items:center;
 background:rgba(0,0,0,0.65);
-backdrop-filter:blur(4px);
--webkit-backdrop-filter:blur(4px);
-z-index:999999;
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+z-index:99999999;
 opacity:0;
 visibility:hidden;
 transition:opacity .25s ease;
-padding:20px;
+padding:30px;
 box-sizing:border-box;
 }
 
@@ -32,75 +33,84 @@ opacity:1;
 visibility:visible;
 }
 
-/* ===== POPUP BOX ===== */
+/* ===== BOX ===== */
 .payment-box{
 width:100%;
-max-width:420px;
-background:#ffffff;
-border-radius:22px;
-padding:35px 28px 40px;
+max-width:430px;
+background:linear-gradient(145deg,#ffffff,#f8fafc);
+border-radius:28px;
+padding:45px 30px 50px;
 text-align:center;
-box-shadow:0 40px 80px rgba(0,0,0,0.5);
-transform:translateY(-60px); /* nhích lên trên */
-animation:popupIn .25s ease;
+box-shadow:0 70px 150px rgba(0,0,0,0.7);
+transform:translateY(-70px);
+animation:popupFade .25s ease;
 box-sizing:border-box;
 }
 
-/* animation mượt */
-@keyframes popupIn{
-from{
-opacity:0;
-transform:translateY(-80px);
-}
-to{
-opacity:1;
-transform:translateY(-60px);
-}
+/* hiệu ứng nổi */
+@keyframes popupFade{
+from{opacity:0; transform:translateY(-100px);}
+to{opacity:1; transform:translateY(-70px);}
 }
 
-/* tiêu đề mã acc */
+/* mã acc */
 .payment-box h2{
-font-size:19px;
+font-size:18px;
 font-weight:700;
-margin-bottom:18px;
-color:#444;
+margin-bottom:22px;
+letter-spacing:1px;
+color:#475569;
 }
 
-/* THANK YOU */
+/* THANK YOU nổi + phù hợp mọi background */
 .welcome-title{
 font-size:34px;
 font-weight:900;
-line-height:1.15;
-letter-spacing:2px;
+line-height:1.2;
+letter-spacing:3px;
 margin-bottom:20px;
-color:#0f172a;
+background:linear-gradient(135deg,#6366f1,#a855f7,#ec4899);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 8px 30px rgba(168,85,247,0.5);
+}
+
+.welcome-title span{
+display:block;
+font-size:16px;
+font-weight:700;
+letter-spacing:2px;
+margin-top:8px;
+color:#64748b;
+-webkit-text-fill-color:initial;
+background:none;
 }
 
 /* nội dung */
 .payment-box p{
 font-size:16px;
-line-height:1.6;
-margin-bottom:28px;
-color:#555;
+line-height:1.7;
+color:#475569;
+margin-bottom:32px;
 }
 
 /* nút */
 .popup-ok{
-padding:14px 38px;
+padding:15px 45px;
 border:none;
-border-radius:16px;
-background:linear-gradient(145deg,#7b6cf0,#6a5be8);
-color:#fff;
+border-radius:22px;
+background:linear-gradient(135deg,#7c3aed,#6366f1);
+color:#ffffff;
 font-size:17px;
 font-weight:700;
 cursor:pointer;
-box-shadow:0 8px 0 #5a4fd6;
+box-shadow:0 8px 0 #5b21b6;
 transition:.15s ease;
 }
 
 .popup-ok:active{
 transform:translateY(4px);
-box-shadow:0 4px 0 #5a4fd6;
+box-shadow:0 4px 0 #5b21b6;
 }
 /* ===== FOOTER CLEAN - FIX DARK MODE ===== */
 footer{
@@ -480,9 +490,8 @@ window.addEventListener("DOMContentLoaded", function(){
     <h2 id="popupAcc"></h2>
 
     <div class="welcome-title">
-      ❤️ THANKS YOU<br>
-      FOR<br>
-      YOUR PURCHASE ❤️
+  🎉 THANK YOU 🎉
+  <span>FOR YOUR PURCHASE</span>
     </div>
 
     <p>
@@ -498,16 +507,18 @@ window.addEventListener("DOMContentLoaded", function(){
 </div>
  <script>
 function openPayment(){
+const accText = document.getElementById("accTitle").innerText;
+const accNumber = accText.replace("Mã Acc ","");
 
-    const accText = document.getElementById("accTitle").innerText;
-    const accNumber = accText.replace("Mã Acc ","");
+document.getElementById("popupAcc").innerText =
+"🔔 MÃ ACC: " + accNumber + " 🔔";
 
-    document.getElementById("popupAcc").innerText =
-        "🔔 MÃ ACC: " + accNumber + " 🔔";
+document.getElementById("paymentPopup").classList.add("active");
 
-    document.getElementById("paymentPopup").classList.add("active");
+/* khóa scroll nền */
+document.body.style.overflow="hidden";
+document.documentElement.style.overflow="hidden";
 }
-
 function goFacebook(){
     window.location.href="https://www.facebook.com/share/1Q8MGeMzvT/?mibextid=wwXIfr";
 }
