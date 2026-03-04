@@ -725,6 +725,19 @@ window.addEventListener("DOMContentLoaded", function(){
     }
 });
 </script>
+ <script>
+function openModal(){
+document.getElementById("modal").classList.add("show");
+}
+
+function closeModal(){
+document.getElementById("modal").classList.remove("show");
+}
+
+window.addEventListener("load",function(){
+setTimeout(openModal,800);
+});
+ </script>
  <!-- ===== MODAL POPUP ===== -->
 <div class="modal-overlay" id="modal">
   <div class="modal-box">
