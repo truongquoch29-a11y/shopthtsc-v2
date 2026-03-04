@@ -7,7 +7,24 @@
 <title>Chi Tiết Acc</title>
 
 <style>
+/* Ảnh nhỏ dưới mã acc */
+.popup-preview{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-bottom:22px;
+}
 
+.popup-preview img{
+    width:140px;
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.25);
+    transition:0.3s ease;
+}
+
+.popup-preview img:hover{
+    transform:scale(1.05);
+}
 /* ===== POPUP PREMIUM FINAL ===== */
 .payment-popup{
 position:fixed;
@@ -523,7 +540,11 @@ window.addEventListener("DOMContentLoaded", function(){
 <div class="payment-popup" id="paymentPopup">
   <div class="payment-box">
 
-    <h2 id="popupAcc"></h2>
+<h2 id="popupAcc"></h2>
+
+<div class="popup-preview">
+  <img id="popupImage" src="" alt="">
+</div>
 
 <div class="welcome-title">
   <div class="main">
@@ -548,20 +569,24 @@ window.addEventListener("DOMContentLoaded", function(){
 </div>
  <script>
 function openPayment(){
+function openPayment(){
 const accText = document.getElementById("accTitle").innerText;
 const accNumber = accText.replace("Mã Acc ","");
 
 document.getElementById("popupAcc").innerText =
 "🔔 MÃ ACC: " + accNumber + " 🔔";
 
+/* Lấy ảnh chính và đưa vào popup */
+const mainImage = document.querySelector(".image-box img").getAttribute("src");
+document.getElementById("popupImage").src = mainImage;
+
 document.getElementById("paymentPopup").classList.add("active");
 
-/* khóa scroll nền đúng cách */
 document.body.style.overflow="hidden";
 document.body.style.height="100vh";
-}
+   }
 function goFacebook(){
-    window.location.href="https://www.facebook.com/share/1Q8MGeMzvT/?mibextid=wwXIfr";
+    window.location.href="https://zalo.me/0702093263";
 }
  </script>
 </body>
