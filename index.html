@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>THTSCShop - Bảo trì hệ thống</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -20,165 +24,141 @@ justify-content:center;
 align-items:center;
 background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
 color:white;
-overflow:hidden;
 }
 
-/* nền sao */
-.background{
-position:absolute;
-width:100%;
-height:100%;
-z-index:0;
-}
+/* khung chính */
 
-.background span{
-position:absolute;
-width:3px;
-height:3px;
-background:white;
-border-radius:50%;
-opacity:0.4;
-animation:stars 12s linear infinite;
-}
-
-@keyframes stars{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-10vh)}
-}
-
-/* card */
 .container{
-position:relative;
-z-index:2;
 text-align:center;
-padding:45px 35px;
+padding:40px;
 border-radius:20px;
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(14px);
 border:1px solid rgba(255,255,255,0.12);
-box-shadow:0 0 60px rgba(0,0,0,0.6);
+box-shadow:0 0 50px rgba(0,0,0,0.6);
 max-width:500px;
 width:90%;
 }
 
-.logo{
-font-size:40px;
-font-weight:bold;
-letter-spacing:2px;
-margin-bottom:10px;
+/* logo */
+
+.logo img{
+width:80px;
+height:80px;
+border-radius:50%;
+margin-bottom:15px;
+object-fit:cover;
 }
 
+/* tiêu đề */
+
 h1{
-font-size:26px;
+font-size:32px;
+margin-bottom:10px;
+letter-spacing:1px;
+}
+
+h2{
+font-size:22px;
 margin-bottom:15px;
+font-weight:500;
 }
 
 p{
-opacity:0.8;
-margin-bottom:35px;
+opacity:0.85;
 line-height:1.5;
+margin-bottom:25px;
 }
 
-/* bánh răng */
+/* icon bánh răng */
 
-.loader{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:30px;
-margin-bottom:10px;
+.gears{
+font-size:40px;
+margin-bottom:20px;
+opacity:0.9;
 }
 
-.gear{
-width:60px;
-height:60px;
-border-radius:50%;
-border:6px solid white;
-position:relative;
-animation:spin 3s linear infinite;
+.gears i{
+margin:0 10px;
 }
 
-.gear::before,
-.gear::after{
-content:"";
-position:absolute;
-background:white;
-}
-
-.gear::before{
-width:6px;
-height:100%;
-left:50%;
-top:0;
-transform:translateX(-50%);
-}
-
-.gear::after{
-height:6px;
-width:100%;
-top:50%;
-left:0;
-transform:translateY(-50%);
-}
-
-/* bánh răng nhỏ */
-
-.gear.small{
-width:40px;
-height:40px;
-border-width:5px;
-animation:spinReverse 2s linear infinite;
-}
-
-@keyframes spin{
-0%{transform:rotate(0deg)}
-100%{transform:rotate(360deg)}
-}
-
-@keyframes spinReverse{
-0%{transform:rotate(360deg)}
-100%{transform:rotate(0deg)}
-}
+/* footer */
 
 .footer{
 margin-top:20px;
 font-size:14px;
-opacity:0.6;
+opacity:0.8;
 }
+
+.footer a{
+color:white;
+margin:0 10px;
+font-size:20px;
+text-decoration:none;
+}
+
+/* popup */
+
+.popup{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#111827;
+border:1px solid rgba(255,255,255,0.15);
+padding:12px 18px;
+border-radius:12px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+font-size:14px;
+}
+
+.popup i{
+font-size:18px;
+color:#60a5fa;
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="background">
-<span style="left:10%;animation-delay:0s"></span>
-<span style="left:20%;animation-delay:2s"></span>
-<span style="left:30%;animation-delay:4s"></span>
-<span style="left:40%;animation-delay:1s"></span>
-<span style="left:50%;animation-delay:3s"></span>
-<span style="left:60%;animation-delay:5s"></span>
-<span style="left:70%;animation-delay:2s"></span>
-<span style="left:80%;animation-delay:4s"></span>
-<span style="left:90%;animation-delay:1s"></span>
-</div>
-
 <div class="container">
 
-<div class="logo">THTSCSHOP</div>
+<div class="logo">
+<img src="logo.png">
+</div>
 
-<h1>Hệ thống đang bảo trì</h1>
+<h1>THTSCSHOP</h1>
+<h2>Hệ thống đang bảo trì</h2>
 
 <p>Website đang được nâng cấp để mang lại trải nghiệm tốt hơn. Vui lòng quay lại sau.</p>
 
-<div class="loader">
-<div class="gear"></div>
-<div class="gear small"></div>
+<div class="gears">
+<i class="fa-solid fa-gear"></i>
+<i class="fa-solid fa-gear"></i>
 </div>
 
 <div class="footer">
-© 2026 THTSCSHOP 
+
+<div style="margin-bottom:8px;">© 2026 THTSCShop</div>
+
+<a href="https://facebook.com" target="_blank">
+<i class="fa-brands fa-facebook"></i>
+</a>
+
+<a href="https://zalo.me" target="_blank">
+<i class="fa-solid fa-comment"></i>
+</a>
+
 </div>
 
+</div>
+
+<div class="popup">
+<i class="fa-solid fa-circle-info"></i>
+<span>Shop đang bảo trì, hãy liên hệ hỗ trợ</span>
 </div>
 
 </body>
